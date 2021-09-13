@@ -52,7 +52,7 @@ def get_filters():
 
     print('-'*40)
     return city, month, day
-
+# load day, month and city from data file
 def load_data(city, month, day):
 
    df=pd.read_csv(CITY_DATA[city])
@@ -60,10 +60,12 @@ def load_data(city, month, day):
    df['month'] =df['Start Time'].dt.month
    df['day_of_week'] = df['Start Time'].dt.weekday_name
    df['hour'] = df['Start Time'].dt.hour
+   #filter by day if applicable
    if month.lower() !='all':
     months = ['january', 'february', 'march', 'april', 'may', 'june']
     imonth = months.index(month) + 1
     df = df.loc[df['month'] == imonth]
+    #filter by day if applicable
    if day.lower() != 'all':
     days = ['monday', 'tuesday', 'wednesday', 'friday', 'saturday', 'sunday']
     df = df.loc[df['day_of_week'] == day.title()]
