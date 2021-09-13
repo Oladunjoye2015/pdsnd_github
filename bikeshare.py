@@ -71,7 +71,6 @@ def load_data(city, month, day):
     df = df.loc[df['day_of_week'] == day.title()]
    return df
 
-
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -90,10 +89,8 @@ def time_stats(df):
     the_most_common_start_hour= df['hour'].mode()[0]
     print('The most common hour is: '  + str(the_most_common_start_hour))
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -109,7 +106,6 @@ def station_stats(df):
     most_common_end_station= df['End Station'].mode()[0]
     print('The most common end station: \n {}'.format(most_common_end_station))
 
-
     # TO DO: display most frequent combination of start station and end station trip
     most_common_trip= df.groupby(['Start Station', 'End Station']).size().nlargest(1)
     print('The most common trip is: \n {}'.format(most_common_trip))
@@ -117,9 +113,8 @@ def station_stats(df):
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
-
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
+    """Displays statistics on the average and total trip duration."""
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
@@ -128,15 +123,12 @@ def trip_duration_stats(df):
     total_travel_time= df['Trip Duration'].sum().round()
     print('The total travel time is: ',(total_travel_time))
 
-
     # display mean travel time
     mean_travel_time= df['Trip Duration'].mean().round()
     print('The mean travel time is:', (mean_travel_time))
 
-
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
@@ -153,8 +145,6 @@ def user_stats(df):
     else:
          print('User Type does not exist in this dataset')
 
-
-
     # TO DO: Display counts of gender
     for city in cities:
         try:
@@ -165,8 +155,6 @@ def user_stats(df):
         else:
             print('\nThe count of user gender is:\n' + str(gender))
             break
-
-
     #  Display earliest, most recent, and most common year of birth
 
     # The earliest year of birth
@@ -218,7 +206,6 @@ def display_raw_data(df):
                print(df[data : data+5])
                data += 5
 
-
         else:
             raw = input("\nYour input is invalid. Please enter only 'yes' or 'no'\n").lower()
             continue
@@ -233,9 +220,6 @@ def main():
         user_stats(df)
         display_raw_data(df)
 
-
-
-
         # TO DO: convert the user input to lower case using lower() function
         restart= " "
 
@@ -244,9 +228,6 @@ def main():
             restart=input('Invalid input, please enter yes or no: ')
         if restart.lower() != 'yes':
             break
-
-
-
 
 if __name__ == "__main__":
 
