@@ -2,7 +2,6 @@ import time
 import pandas as pd
 import numpy as np
 
-
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
@@ -228,7 +227,7 @@ def main():
             restart=input('Invalid input, please enter yes or no: ')
         if restart.lower() != 'yes':
             break
-
+# call data based on user input
 if __name__ == "__main__":
 
     main()
