@@ -35,7 +35,7 @@ def get_filters():
     while True:
         month= str(input('Enter month to filter by months, please choose january to june or choose\nall if you don"t want to filter : ').lower())
         if month not in months:
-            print('\nooops! invalid month, please choose january to june or choose\nall if you don"t want to filter')
+            print('\nope! invalid month, please choose january to june or choose\nall if you don"t want to filter')
 
         else:
             print('You have selected: ', month)
